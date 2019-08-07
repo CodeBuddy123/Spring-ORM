@@ -9,6 +9,7 @@
         <property name="connection.user">system</property>
         <property name="connection.password">ashish</property>
         <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="show_sql">true</property>
         <mapping resource="com/ashsoft/resources/hibernate-mapping.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -22,17 +22,29 @@ public class Test {
         SessionFactory sessionFactory=cfg.buildSessionFactory(registry);    //creating sf object in 4.x version
 	Session session=sessionFactory.openSession();
         
-        Transaction tx= session.beginTransaction();
+        /*Transaction tx= session.beginTransaction();
         Employee emp= new Employee();
         emp.setEno(111);
-        emp.setEname("AAA");
-        emp.setEsal(5000);
-        emp.setEaddr("Delhi");
+        emp.setEname("CCC");
+        emp.setEsal(6000);
+        emp.setEaddr("Pune");*/
         
-        session.save(emp);
-        tx.commit();
-        System.out.println("Employee Inserted successfully");
+        //session.saveOrUpdate(emp);
+        //session.save(emp);
         
+        //session.delete(emp);
+        //tx.commit();
+        //System.out.println("Employee Inserted/Updated/deleted successfully");
+        
+        Employee emp=(Employee) session.get("com.ashsoft.entity.Employee",111);
+        
+        System.out.println("Employee Details");
+        System.out.println("----------------------------");
+        System.out.println("Employee No      : "+emp.getEno());
+        System.out.println("Employee Name    : "+emp.getEname());
+        System.out.println("Employee Salary  : "+emp.getEsal());
+        System.out.println("Employee Address : "+emp.getEaddr());
+                
         session.close();
         sessionFactory.close();       
         
